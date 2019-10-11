@@ -1,12 +1,7 @@
-// const validator = require('validator');
-
+const fs = require('fs');
 const chalk = require('chalk');
 const yargs = require('yargs');
 const getNotes = require('./notes');
-
-
-
-// add, remove, read, list
 
 // Create the Add command
 yargs.command({
