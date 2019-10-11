@@ -1,25 +1,66 @@
 // const validator = require('validator');
 
 const chalk = require('chalk');
+const yargs = require('yargs');
 const getNotes = require('./notes');
 
-const notes = getNotes();
-console.log(notes);
+
+
+// add, remove, read, list
+
+// Create the Add command
+yargs.command({
+    command: 'add',
+    describe: 'Adds a new note.',
+    handler: function() {
+        console.log('Adding a new note.');
+    }
+});
+
+// Create the Remove command
+yargs.command({
+    command: 'remove',
+    describe: 'Removes a note.',
+    handler: function() {
+        console.log('Removing a note.');
+    }
+});
+
+// Create the List command
+yargs.command({
+    command: 'list',
+    describe: 'Lists all the notes.',
+    handler: function() {
+        console.log('Listing all notes.');
+    }
+});
+
+// Create the Read command
+yargs.command({
+    command: 'read',
+    describe: 'Reads a note.',
+    handler: function() {
+        console.log('Reading a note.');
+    }
+});
+
+console.log(yargs.argv);
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Chalk - easily define themes
-const error = chalk.bold.red;
-const warning = chalk.keyword('orange');
-
-
-console.log(error("Error. Try again later."));
-console.log(warning("Dangerous. Are you sure you want to open the door?"));
-console.log(chalk.green("Success!"));
-
-console.log(chalk.bgRed.bold.inverse("Messing things up!"));
-
-
-
-
+// const error = chalk.bold.red;
+// const warning = chalk.keyword('orange');
 
 // console.log(validator.isURL('https:/mead.io'));
 
