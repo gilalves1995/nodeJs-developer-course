@@ -10,6 +10,8 @@ const addNote = (title, body) => {
     // .find is similar to filter except that returns the first note with the provided title
     const duplicateNote = notes.find(note => note.title === title);
 
+    debugger;
+
     if (!duplicateNote) {
         notes.push({ title: title, body: body });
         saveNotes(notes);
