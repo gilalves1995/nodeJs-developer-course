@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About</title>
+        <title>Help</title>
         <!-- href may contain the relative path (if it starts with ./) or the absolute path to the file (if it starts with /, which will point to the directory public) -->
         <link rel="stylesheet" href="./css/styles.css"/>
     </head>
     <body>
-        <h1>{{ title }}</h1>
-        <img src="./img/me.jpg"/>
-        <p> Created by {{ name }} </p>
+        {{>header}}
+        <p> {{ message }} </p>
+        {{>footer}}
     </body>
 </html>
