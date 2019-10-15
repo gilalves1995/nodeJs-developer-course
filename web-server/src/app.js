@@ -1,17 +1,37 @@
-// Core modules
 const path = require('path');
-
-// Npm modules
 const express = require('express');
 
-
 console.log(__dirname);
-console.log(path.join(__dirname, '../public'));
+console.log(path.join(__dirname, '../views'));
 
 const app = express();
 const publicDirectoryPath = path.join(__dirname, '../public');
 
+// Set the template engine Express.js will use
+app.set('view engine', 'hbs');
 app.use(express.static(publicDirectoryPath));
+
+app.get('', (req, res) => {
+    // .render to serve hbs templates
+    res.render('index', {
+        title: 'Weather App',
+        name: 'Andrew Mead'
+    });
+});
+
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About Me',
+        name: 'Andrew Mead'
+    });
+});
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        title: 'Help',
+        message: 'This is an help message!'
+    });
+});
 
 
 /*
@@ -48,3 +68,5 @@ app.listen(3000, () => {
 
 
 // __dirname is the full path where the script lives and __filename is the full path to the file
+
+// Handlebars - Template Engine to render dynamic web pages and way of reusing components such as headers
