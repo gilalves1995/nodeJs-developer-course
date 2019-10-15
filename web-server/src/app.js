@@ -1,23 +1,38 @@
+// Core modules
+const path = require('path');
+
+// Npm modules
 const express = require('express');
+
+
+console.log(__dirname);
+console.log(path.join(__dirname, '../public'));
+
 const app = express();
+const publicDirectoryPath = path.join(__dirname, '../public');
 
-// Provides data on a particular url or endpoint
-// res contains a set of methods to customize the response we sent back to the requester
-app.get('', (req, res) => {
-    res.send('Hello, Express!');
-});
+app.use(express.static(publicDirectoryPath));
 
+
+/*
 app.get('/help', (req, res) => {
-    res.send('Help page');
+    res.send({
+        name: 'Andrew',
+        age: 27
+    });
 });
 
 app.get('/about', (req, res) => {
-    res.send('About page');
+    res.send('<h1>About</h1>');
 });
+*/
 
 app.get('/weather', (req, res) => {
-    res.send('View weather');
-})
+    res.send({
+        forecast: 'It is 52 degrees outside. 0% probability of rain',
+        location: 'Lisbon'
+    });
+});
 
 
 app.listen(3000, () => {
@@ -30,3 +45,6 @@ app.listen(3000, () => {
 // app.com
 // app.com/help
 // app.com/about
+
+
+// __dirname is the full path where the script lives and __filename is the full path to the file
