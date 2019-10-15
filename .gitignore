@@ -3,3 +3,6 @@ notes-app/node_modules
 
 #Ignore weather-app/node_modules folder
 weather-app/node_modules
+
+#Ignore web-server/node_modules folder
+web-server/node_modules
