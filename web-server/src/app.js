@@ -52,19 +52,36 @@ app.get('/help/*', (req, res) => {
     });
 });
 
+app.get('/weather', (req, res) => {
+    if (!req.query.address) {
+        return res.send({
+            error: 'You must provide an address.'
+        });
+    }
+    
+    res.send({
+        forecast: 'It is 52 degrees outside. 0% probability of rain',
+        location: 'Lisbon'
+    });
+});
+
+app.get('/products', (req, res) => {
+    if (!req.query.search) {
+        return res.send({
+            error: 'You must provide a search term.'
+        });
+    }
+    res.send({
+        products: []
+    });
+});
+
 // Matches anything - must be in the end
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
         name: 'Andrew Mead',
         errorMessage: 'Page not found.'
-    });
-});
-
-app.get('/weather', (req, res) => {
-    res.send({
-        forecast: 'It is 52 degrees outside. 0% probability of rain',
-        location: 'Lisbon'
     });
 });
 
