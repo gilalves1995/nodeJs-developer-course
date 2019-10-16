@@ -43,19 +43,23 @@ app.get('/help', (req, res) => {
     });
 });
 
-
-/*
-app.get('/help', (req, res) => {
-    res.send({
-        name: 'Andrew',
-        age: 27
+// Matches anything that starts with /help - must be after /help
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Andrew Mead',
+        errorMessage: 'Help article not found.'
     });
 });
 
-app.get('/about', (req, res) => {
-    res.send('<h1>About</h1>');
+// Matches anything - must be in the end
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Andrew Mead',
+        errorMessage: 'Page not found.'
+    });
 });
-*/
 
 app.get('/weather', (req, res) => {
     res.send({
